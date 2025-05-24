@@ -1,0 +1,141 @@
+'use client';
+
+import { useState } from 'react';
+
+type DropArea = 'dropRed' | 'dropGreen' | 'dropYellow';
+
+export default function Judge({
+  areaItems,
+  setIsDraggable,
+  setIsCheckable,
+  showUnplaced,
+  setShowUnplaced,
+  selectedOption,
+  toNext,
+  setToNext,
+  correctAnswers,
+  changeConstraint,
+}: {
+  areaItems: Record<string, string[]>;
+  setIsDraggable: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsCheckable: React.Dispatch<React.SetStateAction<boolean>>;
+  showUnplaced: boolean;
+  setShowUnplaced: React.Dispatch<React.SetStateAction<boolean>>;
+  selectedOption: string;
+  toNext: boolean;
+  setToNext: React.Dispatch<React.SetStateAction<boolean>>;
+  correctAnswers: Record<string, string>;
+  changeConstraint: string;
+}) { 
+  const [result, setResult] = useState<string | null>(null);  //正誤判定
+  const [restart, setRestart] = useState<boolean>(false);  //もう一度ボタン表示
+  const [wrongReasons, setWrongReasons] = useState<string[]>([]);  //間違い理由
+
+  const handleJudge = () => {  //判定ボタン後
+    let isCorrect:boolean = true;
+    const newWrongReasons: string[] = [];
+    setToNext(false);
+
+    for (const key of Object.keys(correctAnswers) as DropArea[]) {  //正解配列のkeyを取得
+      const correct = correctAnswers[key];
+      const actual = areaItems[key]?.[0]; //?.:'undefined'を扱える(エラーにならない)
+
+
+
+      if (correct !== actual) {
+        isCorrect = false;
+        newWrongReasons.push(`算数文章題を見直してみよう！`);
+      }
+
+      
+      if(!isCorrect){
+        break;
+      }
+    }
+
+    if (selectedOption !== changeConstraint){
+      isCorrect = false;
+      newWrongReasons.push(`修正した制約を見直してみよう！`);
+    }
+
+    if(isCorrect){
+      setToNext(true);
+      console.log("正解");
+    }
+
+    setWrongReasons(newWrongReasons);
+    setResult(isCorrect ? '✅ 正解だよ！' : '❌ 間違っているよ');
+    setRestart(true);
+    setIsCheckable(false);
+  };
+
+  const handleCheck = () => {  //チェックボタン後
+    setIsDraggable(false);
+    setShowUnplaced(false);
+  }
+
+  const handleStop = () => {  //もう一度ボタン後
+    setResult(null);
+    setIsDraggable(true);
+    setIsCheckable(true);
+    setRestart(false);
+    setShowUnplaced(true);
+  };
+  
+
+  
+
+  return (
+    <div className="relative mt-2">
+      <div className='flex gap-4 items-center translate-x-4 h-10'>
+        {showUnplaced && (
+          <button
+            onClick={handleCheck}
+            className='bg-yellow-300 w-[90px] text-white font-bold px-4 py-2 rounded hover:bg-yellow-400 translate-x-[55px] shadow active:translate-y-[2px] active:shadow-none transition'
+          >
+            チェック！
+          </button>
+        )}
+        
+
+
+        {!showUnplaced && !restart && (
+          <button
+            onClick={handleJudge}
+            className="bg-blue-500 w-[90px] text-white font-bold px-4 py-2 rounded hover:bg-blue-600 translate-x-[55px] shadow active:translate-y-[2px] active:shadow-none transition"
+          >
+            判定する
+          </button>   
+        )}
+        
+
+        {restart && !toNext && (
+          <button
+            onClick={handleStop}
+            className="bg-gray-500 w-[90px] text-white font-bold px-4 py-2 rounded translate-x-[55px] shadow active:translate-y-[2px] active:shadow-none transition"
+          >
+            もう一度
+          </button> 
+        )}
+
+      </div>
+      
+
+      {result && (  //useStateのresultに値が入っている場合実行
+        
+        <div className='absolute w-[270px] translate-x-[200px] -translate-y-[80px] font-semibold'>
+          <p className="text-lg  text-center mb-1">{result}</p>
+
+          {restart && wrongReasons.length > 0 &&(
+            <div className='ml-8 text-red-500'>
+            {wrongReasons.map((reason, index) => (  //間違いの原因を表示
+              <li key={index} className="mb-1">{reason}</li>
+            ))}
+            </div>
+          )}
+        </div>
+          
+      )} 
+    </div>
+  );
+}
