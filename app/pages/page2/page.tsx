@@ -8,7 +8,7 @@ import Judge from '../../components/Judge';
 import {question, A, B, C, D, E, F, correctAnswers, changeConstraint } from '../../components/Practice/Data2';
 import CheckBox from '../../components/CheckBox';
 
-export default function Page2() {
+export default function Page1() {
 
   type AreaId = 'unplaced' | 'dropRed' | 'dropGreen' | 'dropYellow' ;
 
@@ -50,31 +50,35 @@ export default function Page2() {
           setAreaItems(newArea);  //useStateに状態を更新
           }
       }}>
-        
-      <div className=" bg-white w-[550px] h-[500px] mx-auto mt-[50px] p-[10px] border border-gray-400 rounded-xl" > {/*背景*/}
+
+      
+      
+      <div className=" bg-white w-[1000px] h-[700px] mx-auto mt-[100px] p-[10px] border border-gray-400 rounded-xl" > {/*背景*/}
 
         <div className='flex'>
-          <p className='bg-blue-800 pt-10 rounded-[50%] w-[120px] h-[120px] text-center ml-0 text-3xl font-bold mb-2 -translate-x-[30px] -translate-y-[30px] text-white'>Level 2</p>
+          <p className='bg-blue-800 pt-[130px] pl-10 rounded-[50%] w-[250px] h-[250px] text-center ml-0 text-5xl font-bold mb-2 -translate-x-[100px] -translate-y-[100px] text-white'>Level２</p>
 
-          <p className='text-blue-800 text-4xl mt-5  font-bold translate-x-5'>モンサクン チェック</p>
+          <p className='text-blue-800 text-5xl font-bold translate-x-[80px] mt-[15px]'>モンサクン チェック</p>
         </div>
+        
 
-        <div className="flex w-[450px] h-[320px] mx-auto gap-10 -translate-y-[30px]">
-          <div className="flex flex-col gap-2">
-            <div className="bg-white w-[230px] h-[50px] text-center">  {/*問題*/}
-              <p>
+        <div className="flex w-[800px] h-[530px] mx-auto gap-10 px-10 -translate-y-[150px]">
+          <div className="flex flex-col gap-3">
+            <div className="bg-white w-[350px] h-[100px] text-center">  {/*問題*/}
+              <p className='text-2xl'>
                 {question[0]}<br/>
                 {question[1]}
               </p>
             </div>
-            <div className="bg-blue-800 w-[210px] h-[300px] rounded-xl p-3 flex flex-col items-center justify-center gap-5"> {/*問題の解答配置エリア*/}
+            <div className="bg-blue-800 w-[350px] h-[600px] rounded-xl p-3 flex flex-col items-center justify-center gap-7">{/*問題の解答配置エリア*/}
 
               <DroppableArea id="dropRed" color="red" items={areaItems['dropRed']} isDraggable={isDraggable}/>
               <DroppableArea id="dropGreen" color="green" items={areaItems['dropGreen']} isDraggable={isDraggable}/>
               <DroppableArea id="dropYellow" color="yellow" items={areaItems['dropYellow']} isDraggable={isDraggable}/>
+              
 
 
-              <div className="w-[200px] h-[30px] mx-auto text-white font-bold">
+              <div className="w-[280px] h-[30px] mx-auto text-white font-bold text-2xl">
                 <p>算数文章題を直してみよう！</p>
               </div>
 
@@ -96,7 +100,7 @@ export default function Page2() {
             </div>
           </div>
 
-          <div className="w-[200px] min-h-[200px] translate-y-[70px] -translate-x-[25px] rounded-xl">
+          <div className="w-[200px] min-h-[200px] translate-y-[70px] translate-x-[30px] rounded-xl">
 
             {showUnplaced && (  //元のカード配置エリア
               <DroppableArea
@@ -117,14 +121,15 @@ export default function Page2() {
             )}
 
             {toNext && (  //Nextボタン
-              <div className='-translate-x-[170px] translate-y-[45px]'>
+              <div className='-translate-x-[322px] translate-y-[95px] h-[60px] mb-2'>
                 <Link 
-                  href=""
-                  className="bg-red-500 w-[90px] text-white font-bold px-4 py-2 rounded shadow active:translate-y-[2px] active:shadow-none transition">
+                  href="/pages/page2"
+                  className="bg-red-500 inline-block w-[150px] h-[50px] text-white text-2xl font-bold px-[46px] py-2 rounded hover:bg-red-600 shadow active:translate-y-[2px] active:shadow-none transition">
                   つぎへ
                 </Link>
               </div>
-            )} 
+              
+            )}
             
             
           </div>

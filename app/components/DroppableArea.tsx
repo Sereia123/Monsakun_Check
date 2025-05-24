@@ -29,8 +29,8 @@ export default function DroppableArea({ id, color, items, direction = 'row', isD
 
   const sizeClass =
     id === 'unplaced'
-      ? 'w-[200px] min-h-[200px] -translate-y-12' 
-      : 'w-[180px] h-[50px]';
+      ? 'w-[300px] min-h-[300px] -translate-y-12' 
+      : 'w-[280px] h-[70px]';
 
   return (
     <div ref={setNodeRef} className={`${baseBorder} ${borderColorClass} ${sizeClass} text-center text-sm `}>

@@ -24,7 +24,7 @@ export default function DraggableItem({ id, disabled = false }: Props) {
       {...(disabled ? {} : draggable.listeners)}  //disabled → 動かせない
       {...(disabled ? {} : draggable.attributes)}
       style={style}
-      className="flex items-center justify-center bg-sky-100 w-[150px] h-[40px] rounded-md shadow-md cursor-pointer"
+      className="flex items-center justify-center bg-sky-100 w-[250px] h-[60px] rounded-md shadow-md cursor-pointer text-2xl"
     >
       {id}
     </div>

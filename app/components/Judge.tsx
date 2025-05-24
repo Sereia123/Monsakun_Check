@@ -87,11 +87,11 @@ export default function Judge({
 
   return (
     <div className="relative mt-2">
-      <div className='flex gap-4 items-center translate-x-4 h-10'>
+      <div className='flex items-center translate-x-4 h-[50px]'>
         {showUnplaced && (
           <button
             onClick={handleCheck}
-            className='bg-yellow-300 w-[90px] text-white font-bold px-4 py-2 rounded hover:bg-yellow-400 translate-x-[55px] shadow active:translate-y-[2px] active:shadow-none transition'
+            className='bg-yellow-300 w-[150px] h-[50px] text-white text-2xl font-bold px-4 py-2 rounded hover:bg-yellow-400 translate-x-[90px] shadow active:translate-y-[2px] active:shadow-none transition'
           >
             チェック
           </button>
@@ -102,7 +102,7 @@ export default function Judge({
         {!showUnplaced && !restart && (
           <button
             onClick={handleJudge}
-            className="bg-blue-500 w-[90px] text-white font-bold px-4 py-2 rounded hover:bg-blue-600 translate-x-[55px] shadow active:translate-y-[2px] active:shadow-none transition"
+            className="bg-blue-500 w-[150px] h-[50px] text-white text-2xl font-bold px-4 py-2 rounded hover:bg-blue-600 translate-x-[90px] shadow active:translate-y-[2px] active:shadow-none transition"
           >
            はんてい
           </button>   
@@ -112,7 +112,7 @@ export default function Judge({
         {restart && !toNext && (
           <button
             onClick={handleStop}
-            className="bg-gray-500 w-[100px] text-white font-bold px-4 py-2 rounded translate-x-[50px] shadow active:translate-y-[2px] active:shadow-none transition"
+            className="bg-gray-500 w-[150px] h-[50px] text-white text-2xl font-bold px-4 py-2 rounded  hover:bg-gray-600 translate-x-[90px] shadow active:translate-y-[2px] active:shadow-none transition"
           >
             もういちど
           </button> 
@@ -123,11 +123,11 @@ export default function Judge({
 
       {result && (  //useStateのresultに値が入っている場合実行
         
-        <div className='absolute w-[270px] translate-x-[200px] -translate-y-[80px] font-semibold'>
-          <p className="text-lg  text-center mb-1">{result}</p>
+        <div className='absolute w-[400px] translate-x-[380px] -translate-y-[130px] font-semibold '>
+          <p className="text-center mb-1 text-2xl">{result}</p>
 
           {restart && wrongReasons.length > 0 &&(
-            <div className='ml-8 text-red-500'>
+            <div className='ml-8 text-red-500 text-2xl'>
             {wrongReasons.map((reason, index) => (  //間違いの原因を表示
               <li key={index} className="mb-1">{reason}</li>
             ))}
@@ -135,7 +135,7 @@ export default function Judge({
           )}
         </div>
           
-      )} 
+      )}  
     </div>
   );
 }

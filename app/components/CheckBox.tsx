@@ -9,11 +9,11 @@ export default function CheckBox(
 ) {
   const options = ['オブジェクト', '物語', '計算式', '数量', '構造']
   return(
-    <div className="ml-4 w-[180px] border p-2 rounded-md -translate-y-4">
-      <p className="font-bold mb-6">修正した制約を選ぼう！</p>
+    <div className="ml-4 w-[300px] border border-dashed border-gray-400 p-7 rounded-xl -translate-x-4">
+      <p className="font-bold mb-6 text-2xl">修正した制約を選ぼう！</p>
 
       {options.map((option) => (  //５つの制約表示
-        <label key={option} className="flex items-center gap-3 ml-3 mb-2">
+        <label key={option} className="flex items-center gap-3 ml-3 mb-2 text-2xl">
           <input
             type="radio"
             value={option}
