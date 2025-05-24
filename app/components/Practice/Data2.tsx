@@ -1,18 +1,18 @@
-export const A = 'りんごが４こあります';
-export const B = 'りんごが２こあります';
-export const C = 'リンゴがあわせて６こあります';
-export const D = 'リンゴが？こあります';
-export const E = 'りんごが３こあります';
-export const F = 'りんごが２こ多くあります';
+export const A = 'りんごが５こあります';
+export const B = 'りんごが３こあります';
+export const C = 'リンゴを？こもらいました';
+export const D = 'リンゴが２こあります';
+export const E = 'りんごを５こもらいました';
+export const F = 'りんごが？こあります';
 
-export const question = ['「４＋？＝６」でけいさんできる', '「ちがいはいくつ」のおはなしをつくろう'];
+export const question = ['「２＋？＝５」でけいさんできる', '「ふえるといくつ」のおはなしをつくろう'];
 
 type DropArea = 'dropRed' | 'dropGreen' | 'dropYellow';
 
 export const correctAnswers: Record<DropArea, string> = {
   'dropRed': D,
-  'dropGreen': E,
-  'dropYellow': F,
+  'dropGreen': C,
+  'dropYellow': A,
 };
 
-export const changeConstraint = '物語';
+export const changeConstraint = '計算式';

@@ -58,7 +58,7 @@ export default function Page1() {
         <div className='flex'>
           <p className='bg-blue-800 pt-10 rounded-[50%] w-[120px] h-[120px] text-center ml-0 text-3xl font-bold mb-2 -translate-x-[30px] -translate-y-[30px] text-white'>Level 1</p>
 
-          <p className='text-blue-800 text-4xl mt-5  font-bold'>モンサクン チェック</p>
+          <p className='text-blue-800 text-4xl mt-5  font-bold translate-x-5'>モンサクン チェック</p>
         </div>
         
 
@@ -125,7 +125,7 @@ export default function Page1() {
                 <Link 
                   href="/pages/page2"
                   className="bg-red-500 w-[90px] text-white font-bold px-4 py-2 rounded shadow active:translate-y-[2px] active:shadow-none transition">
-                  Next
+                  つぎへ
                 </Link>
               </div>
               

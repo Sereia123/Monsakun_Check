@@ -5,13 +5,13 @@ export const D = '男の子が４人います';
 export const E = '男の子が６人います';
 export const F = '男の子と女の子があわせて？人います';
 
-export const question = ['「４＋？＝６」でけいさんできる', '「ちがいはいくつ」のおはなしをつくろう'];
+export const question = ['「４＋６＝？」でけいさんできる', '「あわせていくつ」のおはなしをつくろう'];
 
 type DropArea = 'dropRed' | 'dropGreen' | 'dropYellow';
 
 export const correctAnswers: Record<DropArea, string> = {
   'dropRed': D,
-  'dropGreen': E,
+  'dropGreen': A,
   'dropYellow': F,
 };
 

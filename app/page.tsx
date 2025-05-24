@@ -3,8 +3,8 @@ import Link from 'next/link';
 export default function Home() {
 
   return (
-    <div className='flex items-center justify-center h-screen flex-col'>
-      <h1 className='mb-10 text-5xl font-bold text-white'>Monsakun Check</h1>
+    <div className='flex items-center mt-[200px] flex-col'>
+      <h1 className='mb-10 text-5xl font-bold text-white'>モンサクン チェック</h1>
 
       <Link 
        href="/pages/page1"

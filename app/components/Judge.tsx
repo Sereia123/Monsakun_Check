@@ -93,7 +93,7 @@ export default function Judge({
             onClick={handleCheck}
             className='bg-yellow-300 w-[90px] text-white font-bold px-4 py-2 rounded hover:bg-yellow-400 translate-x-[55px] shadow active:translate-y-[2px] active:shadow-none transition'
           >
-            チェック！
+            チェック
           </button>
         )}
         
@@ -104,7 +104,7 @@ export default function Judge({
             onClick={handleJudge}
             className="bg-blue-500 w-[90px] text-white font-bold px-4 py-2 rounded hover:bg-blue-600 translate-x-[55px] shadow active:translate-y-[2px] active:shadow-none transition"
           >
-            判定する
+           はんてい
           </button>   
         )}
         
@@ -112,9 +112,9 @@ export default function Judge({
         {restart && !toNext && (
           <button
             onClick={handleStop}
-            className="bg-gray-500 w-[90px] text-white font-bold px-4 py-2 rounded translate-x-[55px] shadow active:translate-y-[2px] active:shadow-none transition"
+            className="bg-gray-500 w-[100px] text-white font-bold px-4 py-2 rounded translate-x-[50px] shadow active:translate-y-[2px] active:shadow-none transition"
           >
-            もう一度
+            もういちど
           </button> 
         )}
 
