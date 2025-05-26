@@ -54,7 +54,7 @@ export default function Page1() {
 
       
       
-      <div className=" bg-white w-[1000px] mx-auto mt-[3%] p-[10px] border border-gray-400 rounded-xl" > {/*背景*/}
+      <div className=" bg-white w-[1000px] h-[600px] mx-auto mt-[2%] p-[10px] border border-gray-400 rounded-xl" > {/*背景*/}
 
         <div className='flex'>
           <p className='bg-blue-800 pt-[130px] pl-10 rounded-[50%] w-[250px] h-[250px] text-center ml-0 text-5xl font-bold mb-2 -translate-x-[100px] -translate-y-[100px] text-white'>Level１</p>
@@ -63,15 +63,15 @@ export default function Page1() {
         </div>
         
 
-        <div className="flex w-[800px] h-[530px] mx-auto gap-10 px-10 -translate-y-[150px]">
-          <div className="flex flex-col gap-3">
-            <div className="bg-white w-[350px] h-[100px] text-center">  {/*問題*/}
+        <div className="flex w-[800px] h-[530px] mx-auto gap-10 px-10 -translate-y-[180px] translate-x-3">
+          <div className="flex flex-col">
+            <div className="bg-white w-[350px] h-[80px] text-center">  {/*問題*/}
               <p className='text-2xl'>
                 {question[0]}<br/>
                 {question[1]}
               </p>
             </div>
-            <div className="bg-blue-800 w-[350px] h-[600px] rounded-xl p-3 flex flex-col items-center justify-center gap-7">{/*問題の解答配置エリア*/}
+            <div className="bg-blue-800 w-[350px] h-[370px] rounded-xl p-3 flex flex-col items-center justify-center gap-7">{/*問題の解答配置エリア*/}
 
               <DroppableArea id="dropRed" color="red" items={areaItems['dropRed']} isDraggable={isDraggable}/>
               <DroppableArea id="dropGreen" color="green" items={areaItems['dropGreen']} isDraggable={isDraggable}/>
@@ -102,7 +102,7 @@ export default function Page1() {
             </div>
           </div>
 
-          <div className="w-[200px] min-h-[200px] translate-y-[70px] translate-x-[30px] rounded-xl">
+          <div className="w-[200px] min-h-[200px] max-h-[430px] translate-y-[60px] translate-x-[30px] rounded-xl">
 
             {showUnplaced && (  //元のカード配置エリア
               <DroppableArea
@@ -119,6 +119,7 @@ export default function Page1() {
                 selectedOption={selectedOption}
                 setSelectedOption={setSelectedOption}
                 isCheckable={isCheckable}
+                
               />
             )}
 

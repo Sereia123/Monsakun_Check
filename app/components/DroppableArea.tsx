@@ -18,7 +18,7 @@ export default function DroppableArea({ id, color, items, direction = 'row', isD
 
   const baseBorder = ` border-dashed border-[1px] rounded-xl flex ${
     direction === 'column' ? 'flex-col' : 'flex-row'  //エリアを縦か横にならべる
-  } items-center justify-center gap-6 p-2` ;
+  } items-center justify-center gap-3 p-2` ;
 
   const borderColorClass = {
     red: 'border-red-400',
