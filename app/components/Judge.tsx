@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+import { useRouter } from 'next/navigation'; 
 import { useState } from 'react';
 
 type DropArea = 'dropRed' | 'dropGreen' | 'dropYellow';
@@ -15,6 +17,7 @@ export default function Judge({
   setToNext,
   correctAnswers,
   changeConstraint,
+  nextPage,
 }: {
   areaItems: Record<string, string[]>;
   setIsDraggable: React.Dispatch<React.SetStateAction<boolean>>;
@@ -26,10 +29,13 @@ export default function Judge({
   setToNext: React.Dispatch<React.SetStateAction<boolean>>;
   correctAnswers: Record<string, string>;
   changeConstraint: string;
+  nextPage: string;
 }) { 
   const [result, setResult] = useState<string | null>(null);  //正誤判定
   const [restart, setRestart] = useState<boolean>(false);  //もう一度ボタン表示
   const [wrongReasons, setWrongReasons] = useState<string[]>([]);  //間違い理由
+  const router = useRouter(); // useRouterフックを使用
+
 
   const handleJudge = () => {  //判定ボタン後
     let isCorrect:boolean = true;
@@ -59,8 +65,8 @@ export default function Judge({
     }
 
     if(isCorrect){
-      setToNext(true);
-      console.log("正解");
+      setToNext(true); // 正解なら「つぎへ」ボタンを表示
+
     }
 
     setWrongReasons(newWrongReasons);
@@ -81,6 +87,10 @@ export default function Judge({
     setRestart(false);
     setShowUnplaced(true);
   };
+
+  const handleNext = () =>{
+    router.push(nextPage); // 「つぎへ」ボタンクリックでページ遷移
+  }
   
 
   
@@ -116,6 +126,18 @@ export default function Judge({
           >
             もういちど
           </button> 
+        )}
+
+        {toNext && (  //Nextボタン
+           <button
+              onClick={handleNext}
+              className="bg-red-500 w-[150px] h-[50px] text-white text-2xl font-bold px-4 py-2 rounded  hover:bg-red-600 translate-x-[90px] shadow active:translate-y-[2px] active:shadow-none transition"
+            >
+              つぎへ
+            </button> 
+            
+
+                      
         )}
 
       </div>

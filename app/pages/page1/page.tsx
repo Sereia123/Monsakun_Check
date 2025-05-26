@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { DndContext, closestCenter } from '@dnd-kit/core';
 import { useState } from 'react';
 import DroppableArea from '../../components/DroppableArea';
@@ -24,6 +23,8 @@ export default function Page1() {
   const [showUnplaced, setShowUnplaced] = useState(true);  //右の要素の切り替え
   const [selectedOption, setSelectedOption] = useState<string>('オブジェクト');  //制約
   const [toNext, setToNext] = useState<boolean>(false);  //Nextボタン表示
+  const nextPage = "/pages/page2";
+
 
  
   return (
@@ -53,7 +54,7 @@ export default function Page1() {
 
       
       
-      <div className=" bg-white w-[1000px] h-[700px] mx-auto mt-[100px] p-[10px] border border-gray-400 rounded-xl" > {/*背景*/}
+      <div className=" bg-white w-[1000px] mx-auto mt-[3%] p-[10px] border border-gray-400 rounded-xl" > {/*背景*/}
 
         <div className='flex'>
           <p className='bg-blue-800 pt-[130px] pl-10 rounded-[50%] w-[250px] h-[250px] text-center ml-0 text-5xl font-bold mb-2 -translate-x-[100px] -translate-y-[100px] text-white'>Level１</p>
@@ -96,6 +97,7 @@ export default function Page1() {
                 setToNext={setToNext} 
                 correctAnswers={correctAnswers}
                 changeConstraint={changeConstraint}
+                nextPage={nextPage}
               />
             </div>
           </div>
@@ -120,17 +122,7 @@ export default function Page1() {
               />
             )}
 
-            {toNext && (  //Nextボタン
-              <div className='-translate-x-[322px] translate-y-[95px] h-[60px] mb-2'>
-                <Link 
-                  href="/pages/page2"
-                  className="bg-red-500 inline-block w-[150px] h-[50px] text-white text-2xl font-bold px-[46px] py-2 rounded hover:bg-red-600 shadow active:translate-y-[2px] active:shadow-none transition">
-                  つぎへ
-                </Link>
-              </div>
-              
-            )}
-            
+                        
             
           </div>
         </div>
