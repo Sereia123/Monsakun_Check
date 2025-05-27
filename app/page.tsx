@@ -7,8 +7,8 @@ export default function Home() {
       <h1 className='mb-10 text-5xl font-bold text-white'>モンサクン チェック</h1>
 
       <Link 
-       href="/pages/page1"
-       className="w-[200px] h-[50px] bg-white  text-blue-800 rounded text-center pt-2 font-bold text-xl"
+       href="/pages/select"
+       className="w-[200px] h-[50px] bg-white  text-blue-800 rounded text-center pt-2 font-bold text-xl hover:bg-blue-500"
       >
         はじめる
       </Link>

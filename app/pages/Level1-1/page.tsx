@@ -23,7 +23,7 @@ export default function Page1() {
   const [showUnplaced, setShowUnplaced] = useState(true);  //右の要素の切り替え
   const [selectedOption, setSelectedOption] = useState<string>('オブジェクト');  //制約
   const [toNext, setToNext] = useState<boolean>(false);  //Nextボタン表示
-  const nextPage = "/pages/page2";
+  const nextPage = "/pages/Level1-2";
 
 
  
@@ -57,7 +57,7 @@ export default function Page1() {
       <div className=" bg-white w-[1000px] h-[600px] mx-auto mt-[2%] p-[10px] border border-gray-400 rounded-xl" > {/*背景*/}
 
         <div className='flex'>
-          <p className='bg-blue-800 pt-[130px] pl-10 rounded-[50%] w-[250px] h-[250px] text-center ml-0 text-5xl font-bold mb-2 -translate-x-[100px] -translate-y-[100px] text-white'>Level１</p>
+          <p className='bg-blue-800 pt-[100px] pl-12 rounded-[50%] w-[250px] h-[250px] text-center ml-0 text-[70px] font-bold mb-2 -translate-x-[100px] -translate-y-[100px] text-white'>Q１</p>
 
           <p className='text-blue-800 text-5xl font-bold translate-x-[80px] mt-[15px]'>モンサクン チェック</p>
         </div>
